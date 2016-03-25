@@ -1,4 +1,7 @@
 var ShoppingListItem = function(name, description) {
+  if(typeof name !== 'string' || typeof description !== 'string') {
+    throw new TypeError('Not a string');
+  }
   this.name = name;
   this.description = description;
   this.is_done = false;
@@ -14,7 +17,7 @@ ShoppingListItem.prototype.uncheck = function() {
 
 ShoppingListItem.prototype.render = function() {
   var html_content =  '<ul><li id="completed_' + this.is_done + '">' +
-      '<span>' + this.name + '</span><span>' + this.description + '</span>' +
+      '<span>' + this.name + '</span> <span>' + this.description + '</span>' +
       '</li></ul>';
   return html_content;
 }

@@ -68,7 +68,7 @@ describe('Shopping List Item', function() {
       })
 
       it('should construct and return an html formatted string', function() {
-          var html_content =  '<ul><li id="completed_false"><span>Avacado</span>' +
+          var html_content =  '<ul><li id="completed_false"><span>Avacado</span> ' +
               '<span>Must be eaten immediately</span></li></ul>';
         var html_output = shoppingListItem.render();
         expect(html_output).to.be.a('string');
