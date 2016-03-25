@@ -81,7 +81,83 @@ describe('Shopping List Item', function() {
 })
 
 describe('Shopping List', function() {
-  it('should be a class', function() {
+  var shoppingList;
+
+  beforeEach(function() {
+    shoppingList = new ShoppingList();
+  })
+
+  it('should be a function', function() {
     expect(ShoppingList).to.be.a('function');
   })
-})
+
+  it('should be an object', function() {
+    expect(shoppingList).to.be.an('object');
+  })
+
+  describe('Shopping List Properties', function() {
+    describe('items', function() {
+      it('should have a property named items', function() {
+          expect(shoppingList.items).to.exist;
+      })
+
+      it('should initialize an empty array', function() {
+        expect(shoppingList.items).to.be.instanceof(Array);
+        expect(shoppingList.items).to.be.empty;
+      })
+    })
+  })
+
+  describe('Shopping List Methods', function() {
+    var apple;
+    var banana;
+
+    beforeEach(function() {
+      apple = new ShoppingListItem('Apple', 'It is red');
+      banana = new ShoppingListItem('Banana', 'It is yellow');
+    })
+
+    describe('addItem', function() {
+      it('should exist on ShoppingList', function() {
+        expect(shoppingList.addItem).to.exist;
+        expect(shoppingList.addItem).to.be.a('function');
+      })
+      it('should throw an error when not passed a ShoppingListItem', function() {
+        expect(true).to.be.false;
+      })
+      it('should add an item to items array', function() {
+        shoppingList.addItem(apple);
+        expect(shoppingList.items).to.have.length(1);
+        expect(shoppingList.items[0]).to.equal(apple);
+        shoppingList.addItem(banana);
+        expect(shoppingList.items).to.have.length(2);
+        expect(shoppingList.items[1]).to.equal(banana);
+      })
+    })
+
+    describe('removeItem', function() {
+      it('should exist on ShoppingList', function() {
+        expect(shoppingList.removeItem).to.exist;
+        expect(shoppingList.removeItem).to.be.a('function');
+      })
+
+      it('should remove an item from the items array', function() {
+        expect(true).to.be.false;
+
+      })
+    })
+
+    describe('render', function() {
+      it('should exist on ShoppingList', function() {
+        expect(shoppingList.render).to.exist;
+        expect(shoppingList.render).to.be.a('function');
+      })
+
+      it('should construct and render and html string', function() {
+        expect(true).to.be.false;
+
+      })
+    })
+
+  }) // end of Shoppin List Method tests
+}) // end of Shopping List test suite
