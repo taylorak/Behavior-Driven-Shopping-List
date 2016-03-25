@@ -1,0 +1,24 @@
+{
+  "name": "Behavior-Driven-Shopping-List",
+  "version": "1.0.0",
+  "description": "Fork and clone this project.   Goal: Create a working, single page app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taylorak/Behavior-Driven-Shopping-List.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taylorak/Behavior-Driven-Shopping-List/issues"
+  },
+  "homepage": "https://github.com/taylorak/Behavior-Driven-Shopping-List#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
