@@ -8,7 +8,7 @@
   var addToShoppingList = function() {
     var name = document.querySelector('#name');
     var description = document.querySelector('#description');
-    if(name.value !== '' ||  description.value !== '') {
+    if(name.value !== '' &&  description.value !== '') {
       var newShoppingListItem = new ShoppingListItem(name.value, description.value);
       shoppingList.addItem(newShoppingListItem);
       name.value = '';
