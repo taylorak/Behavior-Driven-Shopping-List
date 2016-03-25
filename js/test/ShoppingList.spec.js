@@ -123,12 +123,12 @@ describe('Shopping List', function() {
         expect(shoppingList.addItem).to.be.a('function');
       })
       it('should throw an error when not passed a ShoppingListItem', function() {
-        expect(shoppingList.addItem.bind(null, [])).to.throw(Error);
-        expect(shoppingList.addItem.bind(null, {})).to.throw(Error);
-        expect(shoppingList.addItem.bind(null, null)).to.throw(Error);
-        expect(shoppingList.addItem.bind(null, undefined)).to.throw(Error);
-        expect(shoppingList.addItem.bind(null, '')).to.throw(Error);
-        expect(shoppingList.addItem.bind(null, 1)).to.throw(Error);
+        expect(shoppingList.addItem.bind(shoppingList, [])).to.throw(Error);
+        expect(shoppingList.addItem.bind(shoppingList, {})).to.throw(Error);
+        expect(shoppingList.addItem.bind(shoppingList, null)).to.throw(Error);
+        expect(shoppingList.addItem.bind(shoppingList, undefined)).to.throw(Error);
+        expect(shoppingList.addItem.bind(shoppingList, '')).to.throw(Error);
+        expect(shoppingList.addItem.bind(shoppingList, 1)).to.throw(Error);
       })
       it('should add an item to items array', function() {
         shoppingList.addItem(apple);
@@ -146,12 +146,12 @@ describe('Shopping List', function() {
         expect(shoppingList.removeItem).to.be.a('function');
       })
       it('should throw an error when not passed a ShoppingListItem', function() {
-        expect(shoppingList.removeItem.bind(null, [])).to.throw(Error);
-        expect(shoppingList.removeItem.bind(null, {})).to.throw(Error);
-        expect(shoppingList.removeItem.bind(null, null)).to.throw(Error);
-        expect(shoppingList.removeItem.bind(null, undefined)).to.throw(Error);
-        expect(shoppingList.removeItem.bind(null, '')).to.throw(Error);
-        expect(shoppingList.removeItem.bind(null, 1)).to.throw(Error);
+        expect(shoppingList.removeItem.bind(shoppingList, [])).to.throw(Error);
+        expect(shoppingList.removeItem.bind(shoppingList, {})).to.throw(Error);
+        expect(shoppingList.removeItem.bind(shoppingList, null)).to.throw(Error);
+        expect(shoppingList.removeItem.bind(shoppingList, undefined)).to.throw(Error);
+        expect(shoppingList.removeItem.bind(shoppingList, '')).to.throw(Error);
+        expect(shoppingList.removeItem.bind(shoppingList, 1)).to.throw(Error);
       })
       it('should remove an item from the items array', function() {
         shoppingList.addItem(apple);
