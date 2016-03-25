@@ -123,7 +123,12 @@ describe('Shopping List', function() {
         expect(shoppingList.addItem).to.be.a('function');
       })
       it('should throw an error when not passed a ShoppingListItem', function() {
-        expect(true).to.be.false;
+        expect(shoppingList.addItem.bind(null, [])).to.throw(Error);
+        expect(shoppingList.addItem.bind(null, {})).to.throw(Error);
+        expect(shoppingList.addItem.bind(null, null)).to.throw(Error);
+        expect(shoppingList.addItem.bind(null, undefined)).to.throw(Error);
+        expect(shoppingList.addItem.bind(null, '')).to.throw(Error);
+        expect(shoppingList.addItem.bind(null, 1)).to.throw(Error);
       })
       it('should add an item to items array', function() {
         shoppingList.addItem(apple);
@@ -140,10 +145,27 @@ describe('Shopping List', function() {
         expect(shoppingList.removeItem).to.exist;
         expect(shoppingList.removeItem).to.be.a('function');
       })
-
+      it('should throw an error when not passed a ShoppingListItem', function() {
+        expect(shoppingList.removeItem.bind(null, [])).to.throw(Error);
+        expect(shoppingList.removeItem.bind(null, {})).to.throw(Error);
+        expect(shoppingList.removeItem.bind(null, null)).to.throw(Error);
+        expect(shoppingList.removeItem.bind(null, undefined)).to.throw(Error);
+        expect(shoppingList.removeItem.bind(null, '')).to.throw(Error);
+        expect(shoppingList.removeItem.bind(null, 1)).to.throw(Error);
+      })
       it('should remove an item from the items array', function() {
-        expect(true).to.be.false;
-
+        shoppingList.addItem(apple);
+        shoppingList.addItem(banana)
+        shoppingList.removeItem(apple);
+        expect(shoppingList.items).to.have.length(1);
+        expect(shoppingList.items[0]).to.equal(banana);
+      })
+      it('should remove an item from end of array when no parameters', function() {
+        shoppingList.addItem(apple);
+        shoppingList.addItem(banana)
+        shoppingList.removeItem();
+        expect(shoppingList.items).to.have.length(1);
+        expect(shoppingList.items[0]).to.equal(apple);
       })
     })
 
@@ -154,8 +176,12 @@ describe('Shopping List', function() {
       })
 
       it('should construct and render and html string', function() {
-        expect(true).to.be.false;
-
+        shoppingList.addItem(apple);
+        shoppingList.addItem(banana);
+        var html_content = '<ul>' + apple.render() + banana.render() + '</ul>';
+        var html_output = shoppingList.render();
+        expect(html_output).to.be.a('string');
+        expect(html_output).to.equal(html_content);
       })
     })
 
