@@ -41,8 +41,9 @@
     }
 
     if(event.target.classList.contains('removeButton')) {
-        listElement.remove();
+        //listElement.remove();
         shoppingList.removeItem(shoppingList.items[idx]);
+        shoppingList.render();
     }
   })
 })()
