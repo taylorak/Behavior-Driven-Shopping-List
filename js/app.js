@@ -19,12 +19,11 @@
 
   var changeCheckedStatus = function(idx, checkbox) {
     if(checkbox.checked) {
-      checkbox.checked = true;
       shoppingList.items[idx].check();
     } else {
-      checkbox.checked = false;
       shoppingList.items[idx].uncheck();
     }
+    content.innerHTML = shoppingList.render();
   }
 
   var addToShoppingListButton = document.querySelector('#addToShoppingListButton');
@@ -41,9 +40,8 @@
     }
 
     if(event.target.classList.contains('removeButton')) {
-        //listElement.remove();
-        shoppingList.removeItem(shoppingList.items[idx]);
-        shoppingList.render();
+      shoppingList.removeItem(shoppingList.items[idx]);
+      content.innerHTML = shoppingList.render();
     }
   })
 })()

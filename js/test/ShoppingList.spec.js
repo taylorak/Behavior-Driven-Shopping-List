@@ -14,7 +14,6 @@ describe('Shopping List Item', function() {
   })
 
   describe('Shopping List Item Properties', function() {
-
     it('should initalize name and description with arguments passed in', function() {
       expect(shoppingListItem.name).to.equal('Avacado');
       expect(shoppingListItem.description).to.equal('Must be eaten immediately');
@@ -76,8 +75,6 @@ describe('Shopping List Item', function() {
       })
     })
   })
-
-
 })
 
 describe('Shopping List', function() {
@@ -122,6 +119,7 @@ describe('Shopping List', function() {
         expect(shoppingList.addItem).to.exist;
         expect(shoppingList.addItem).to.be.a('function');
       })
+
       it('should throw an error when not passed a ShoppingListItem', function() {
         expect(shoppingList.addItem.bind(shoppingList, [])).to.throw(Error);
         expect(shoppingList.addItem.bind(shoppingList, {})).to.throw(Error);
@@ -145,6 +143,7 @@ describe('Shopping List', function() {
         expect(shoppingList.removeItem).to.exist;
         expect(shoppingList.removeItem).to.be.a('function');
       })
+
       it('should throw an error when not passed a ShoppingListItem', function() {
         expect(shoppingList.removeItem.bind(shoppingList, [])).to.throw(Error);
         expect(shoppingList.removeItem.bind(shoppingList, {})).to.throw(Error);
@@ -153,6 +152,7 @@ describe('Shopping List', function() {
         expect(shoppingList.removeItem.bind(shoppingList, '')).to.throw(Error);
         expect(shoppingList.removeItem.bind(shoppingList, 1)).to.throw(Error);
       })
+
       it('should remove an item from the items array', function() {
         shoppingList.addItem(apple);
         shoppingList.addItem(banana)
@@ -160,6 +160,7 @@ describe('Shopping List', function() {
         expect(shoppingList.items).to.have.length(1);
         expect(shoppingList.items[0]).to.equal(banana);
       })
+
       it('should remove an item from end of array when no parameters', function() {
         shoppingList.addItem(apple);
         shoppingList.addItem(banana)
@@ -184,6 +185,5 @@ describe('Shopping List', function() {
         expect(html_output).to.equal(html_content);
       })
     })
-
   }) // end of Shoppin List Method tests
 }) // end of Shopping List test suite
