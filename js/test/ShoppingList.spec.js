@@ -69,7 +69,7 @@ describe('Shopping List Item', function() {
 
       it('should construct and return an html formatted string', function() {
           var html_content =  '<li id="completed_false"><input type="checkbox" class="checkable"><span>Avacado</span> ' +
-              '<span>Must be eaten immediately</span></li>';
+              '<span>Must be eaten immediately</span><button class="removeButton" type="button">Remove</button></li>';
         var html_output = shoppingListItem.render();
         expect(html_output).to.be.a('string');
         expect(html_output).to.equal(html_content)

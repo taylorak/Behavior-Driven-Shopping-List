@@ -21,6 +21,6 @@ ShoppingListItem.prototype.render = function() {
     html_content += ' checked';
    }
    html_content += '><span>' + this.name + '</span> <span>' + this.description + '</span>' +
-      '</li>';
+      '<button class="removeButton" type="button">Remove</button></li>';
   return html_content;
 }

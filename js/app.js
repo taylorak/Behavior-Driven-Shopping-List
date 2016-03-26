@@ -27,20 +27,22 @@
     }
   }
 
-  content.addEventListener('click', function(event) {
-    var listElement = event.target.parentNode;
-    if(event.target.classList.contains('checkable')) {
-      var idx = Array.prototype.indexOf.call(listElement.parentNode.childNodes, listElement);
-      changeCheckedStatus(idx, event.target);
-    } else if(event.target.classList.contains('removeButton')) {
-      console.log('remove');
-    }
-  })
-
   var addToShoppingListButton = document.querySelector('#addToShoppingListButton');
   addToShoppingListButton.addEventListener('click', function() {
     addToShoppingList();
   })
 
+  content.addEventListener('click', function(event) {
+    var listElement = event.target.parentNode;
+    var idx = Array.prototype.indexOf.call(listElement.parentNode.childNodes, listElement);
 
+    if(event.target.classList.contains('checkable')) {
+      changeCheckedStatus(idx, event.target);
+    }
+
+    if(event.target.classList.contains('removeButton')) {
+        listElement.remove();
+        shoppingList.removeItem(shoppingList.items[idx]);
+    }
+  })
 })()
