@@ -68,8 +68,8 @@ describe('Shopping List Item', function() {
       })
 
       it('should construct and return an html formatted string', function() {
-          var html_content =  '<ul><li id="completed_false"><span>Avacado</span> ' +
-              '<span>Must be eaten immediately</span></li></ul>';
+          var html_content =  '<li id="completed_false"><input type="checkbox" class="checkable"><span>Avacado</span> ' +
+              '<span>Must be eaten immediately</span></li>';
         var html_output = shoppingListItem.render();
         expect(html_output).to.be.a('string');
         expect(html_output).to.equal(html_content)
@@ -178,7 +178,7 @@ describe('Shopping List', function() {
       it('should construct and render and html string', function() {
         shoppingList.addItem(apple);
         shoppingList.addItem(banana);
-        var html_content = '<ul>' + apple.render() + banana.render() + '</ul>';
+        var html_content = '<ul id="shoppingList">' + apple.render() + banana.render() + '</ul>';
         var html_output = shoppingList.render();
         expect(html_output).to.be.a('string');
         expect(html_output).to.equal(html_content);

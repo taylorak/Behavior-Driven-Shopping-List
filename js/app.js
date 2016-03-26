@@ -17,9 +17,30 @@
     }
   }
 
+  var changeCheckedStatus = function(idx, checkbox) {
+    if(checkbox.checked) {
+      checkbox.checked = true;
+      shoppingList.items[idx].check();
+    } else {
+      checkbox.checked = false;
+      shoppingList.items[idx].uncheck();
+    }
+  }
+
+  content.addEventListener('click', function(event) {
+    var listElement = event.target.parentNode;
+    if(event.target.classList.contains('checkable')) {
+      var idx = Array.prototype.indexOf.call(listElement.parentNode.childNodes, listElement);
+      changeCheckedStatus(idx, event.target);
+    } else if(event.target.classList.contains('removeButton')) {
+      console.log('remove');
+    }
+  })
+
   var addToShoppingListButton = document.querySelector('#addToShoppingListButton');
   addToShoppingListButton.addEventListener('click', function() {
     addToShoppingList();
   })
+
 
 })()
