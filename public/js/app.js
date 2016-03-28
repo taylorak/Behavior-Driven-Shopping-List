@@ -26,9 +26,12 @@
     content.innerHTML = shoppingList.render();
   }
 
-  var addToShoppingListButton = document.querySelector('#addToShoppingListButton');
+  var addToShoppingListButton = document.querySelector('#addBar');
   addToShoppingListButton.addEventListener('click', function() {
-    addToShoppingList();
+    if(event.target.classList.contains('plus')) {
+
+      addToShoppingList();
+    }
   })
 
   content.addEventListener('click', function(event) {
