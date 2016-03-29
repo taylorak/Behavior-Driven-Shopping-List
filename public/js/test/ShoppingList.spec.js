@@ -67,9 +67,13 @@ describe('Shopping List Item', function() {
       })
 
       it('should construct and return an html formatted string', function() {
-          var html_content =  '<li id="completed_false"><input type="checkbox" class="checkable"><span>Avacado</span> ' +
-              '<span>Must be eaten immediately</span><button class="removeButton" type="button">Remove</button></li>';
+          var html_content =  '<li><div class="checkboxDiv"><input '
+          + 'type="checkbox" class="checkable"></div><div class="infoDiv">'
+          +'<span>Avacado</span><br><span class="thinFont">Must be eaten '
+          +'immediately</span></div><div class="removeDiv"><button '
+          +'class="removeButton" type="button">Remove</button></div></li>';
         var html_output = shoppingListItem.render();
+        console.log(html_output);
         expect(html_output).to.be.a('string');
         expect(html_output).to.equal(html_content)
       })
