@@ -1,10 +1,12 @@
 // PARTIALS
 @import 'partials/reset';
-//@import url(https://fonts.googleapis.com/css?family=Roboto:100,700);
 
 // VARIABLES
-$primary-color: #FF0000;
-$secondary-color: #0000FF;
+$primary-color: brown;
+$font-color: lighten($primary-color, 50%);
+$content-background: lighten($primary-color, 20%);
+
+
 
 // MIXINS
 $breakpoints: (
@@ -25,88 +27,74 @@ $breakpoints: (
 }
 
 /* STYLES */
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
 
 body {
-  background-color: $primary-color;
+  background: $content-background;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
 }
 
-a {
-  text-decoration: none;
+input {
+  border: 1px solid black;
+}
+button {
+  color: $font-color;
+  background-color: $content-background;
+  border: 1px solid black;
+  padding: 5px;
 }
 
-// h1, h2, h3, h4, h5, h6 {
-//   text-align: left;
-// }
-
-// header {
-//   padding: 30px;
-//   border: 2px solid blue;
-// }
-
-// header h1 {
-//   text-align: center;
-//   font-size: 30px;
-//   padding: 30px;
-//   background-color: lighten($primary-color, 30%);
-
-//   @include respond-to('medium') {
-//     font-size: 40px;
-//   }
-
-//   @include respond-to('large') {
-//     font-size: 72px;
-//   }
-// }
-
-// header h1 a {
-//   color: $primary-color;
-//   transition: all 0.5s ease;
-
-
-//   &:hover {
-//     color: darken($primary-color, 20%);
-//     transition: all 0.5s ease;
-
-//     @include respond-to('medium') {
-//       font-size: 45px;
-//     }
-
-//     @include respond-to('large') {
-//       font-size: 80px;
-//     }
-//   }
-// }
+.thinFont {
+  font-weight: 100;
+}
 
 #addBar {
-
-  background-color: green;
-  position: absolute;
+  background-color: $primary-color;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 20px;
+  height: 30px;
   padding: 10px;
   text-align: center;
 
-  @include respond-to('large') {
-    text-align: right;
-  }
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 #title {
   display: none;
-  float: left;
+  text-decoration: none;
 
   @include respond-to('large') {
+    font-size: 30px;
+    color: $font-color;
+    flex: 1 1 auto;
     display: initial;
+    text-align: left;
   }
 }
 
+#name, #description {
+  flex: 0 1 45%;
+  margin-right: 10px;
 
+  @include respond-to('medium') {
+    flex: 0 1 35%;
+  }
+
+  @include respond-to('large') {
+    flex: 0 1 10%;
+  }
+}
 
 #symbolAdd {
+  flex: 0 1 5%;
+  margin-right: 5px;
   @include respond-to('medium') {
     display: none;
   }
@@ -115,33 +103,64 @@ a {
 #textAdd {
   display: none;
   @include respond-to('medium') {
+    flex: 0 1 30%;
     display: inline;
+  }
+  @include respond-to('large') {
+    flex: 0 1 20%;
   }
 }
 
 
 
 #content {
-  margin: 50px auto;
-  padding: 10px;
-  background-color: yellow;
-
-  @include respond-to('medium') {
-    width: 100%;
-  }
+  color: $font-color;
+  margin: 0px auto;
+  margin-top: 50px;
+  background: $content-background;
+  min-height: 100%;
 
   @include respond-to('large') {
+    min-height: 100%;
     width: 80%;
   }
 
   ul li {
     margin: 10px;
-    border-bottom: 1px solid black;
-  }
-
-  .removeButton {
-    float: right;
-    display: block;
+    border-bottom: 1px solid $primary-color;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 5px;
+    // background-color: salmon;
   }
 }
 
+.checkboxDiv {
+  flex: 0 0 5%;
+  // background-color: blue;
+  text-align: center;
+}
+
+.infoDiv {
+  flex: 0 1 75%;
+  // background-color: orange;
+  padding-left: 10px;
+  word-wrap: break-word;
+}
+
+.removeDiv {
+  flex: 0 0 20%;
+  // background-color: green;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+
+#empty {
+  padding: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}

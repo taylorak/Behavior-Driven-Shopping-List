@@ -20,11 +20,16 @@ ShoppingList.prototype.removeItem = function(shoppingListItem) {
 }
 
 ShoppingList.prototype.render = function() {
-  var html_content = '<ul id="shoppingList">'
-  for(var i = 0; i < this.items.length; i++) {
-    html_content += this.items[i].render();
+  var html_content;
+  if(this.items.length === 0) {
+    html_content = '<div id="empty">Your Shopping List is Empty</div>'
+  } else {
+    html_content = '<ul id="shoppingList">'
+    for(var i = 0; i < this.items.length; i++) {
+      html_content += this.items[i].render();
+    }
+    html_content += '</ul>'
   }
-  html_content += '</ul>'
   return html_content;
 }
 

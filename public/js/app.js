@@ -35,7 +35,7 @@
   })
 
   content.addEventListener('click', function(event) {
-    var listElement = event.target.parentNode;
+    var listElement = event.target.parentNode.parentNode;
     var idx = Array.prototype.indexOf.call(listElement.parentNode.childNodes, listElement);
 
     if(event.target.classList.contains('checkable')) {
