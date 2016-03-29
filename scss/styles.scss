@@ -132,26 +132,29 @@ button {
     display: flex;
     flex-flow: row nowrap;
     padding: 5px;
-    // background-color: salmon;
   }
 }
 
 .checkboxDiv {
   flex: 0 0 5%;
-  // background-color: blue;
   text-align: center;
 }
 
 .infoDiv {
   flex: 0 1 75%;
-  // background-color: orange;
-  padding-left: 10px;
+  width: 75%;
   word-wrap: break-word;
+  padding-left: 10px;
+
+  .thinFont {
+    word-wrap: break-word;
+
+  }
 }
+
 
 .removeDiv {
   flex: 0 0 20%;
-  // background-color: green;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
